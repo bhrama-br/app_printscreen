@@ -26,6 +26,7 @@ Execute console command:
 ```
 php bin/console PrintScreen 'https://apple.com'
 ```
+
 optional:
 ```
 --file_type="PNG" 
