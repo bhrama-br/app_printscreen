@@ -54,4 +54,4 @@ Description
 ```
 
 ### Ready up
-call [localhost](http://localhost/) in your browser
+call [http://localhost:8080/](http://localhost:8080/) in your browser
