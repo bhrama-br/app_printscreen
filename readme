@@ -1,0 +1,56 @@
+# Symfony 5 - PrintScreen
+
+### Container
+ - [php-fpm](https://hub.docker.com/_/php)
+ - [nginx](https://hub.docker.com/_/nginx)
+ - [mysql](https://hub.docker.com/_/mysql/)
+
+### Installing
+
+Connect to container:
+```
+ docker compose exec php sh
+```
+
+Start migrate:
+```
+ php bin/console doctrine:migrations:migrate
+```
+
+Install composer
+```
+ docker compose up
+```
+
+Execute console command:
+```
+php bin/console PrintScreen 'https://apple.com'
+```
+optional:
+```
+--file_type="PNG" 
+--fail_on_error="false" 
+--no_cookie_banner="false" 
+--scroll_to_element="" 
+--selector="" 
+--full_page="false" 
+--lazy_load="false" 
+--width="1680" 
+--height="867"
+```
+
+Description
+
+```
+'file_type' => 'File Type for the file, The Options include: "JPG", "PNG", "WebP", and "PDF". DEFAULT is PNG'
+'fail_on_error' => 'If fail on error is set to true then the API will return an error if the render encounters a 4xx or 5xx status code. DEFAULT is false'
+'scroll_to_element' => 'Target a specific element for the browser to scroll to before the render. This is useful if a given element is only loaded in the viewport. Default is ""'
+'selector' => 'Specify the target for the render based on a element with a matching selector. If the element is not found, a render of the results is still returned. Example: div > .main-navigation > .logo. Default is ""'
+'full_page' => 'Capture the full page of a website vs. the scrollable area that is visible in the viewport upon render. Default is false'
+'lazy_load' => 'If lazy load is set to true, the browser will cross down the entire page to ensure all content is loaded in the render. Default is false'
+'width' => 'Viewport width in pixels of the browser render. Default is 1680'
+'height' => 'Viewport height in pixels of the browser render. Default is 867'
+```
+
+### Ready up
+call [localhost](http://localhost/) in your browser

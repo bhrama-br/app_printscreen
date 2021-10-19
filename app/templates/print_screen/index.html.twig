@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PrintScreen index{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <h1>PrintScreen</h1>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Url</th>
+                        <th>Image</th>
+                        <th>Status</th>
+                        <th>CreateDate</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for print_screen in print_screens %}
+                    <tr>
+                        <td>{{ print_screen.id }}</td>
+                        {% if print_screen.url_image %}
+                            <td><img src="{{ print_screen.url_image }}" width="50" height="50" class="img-fluid"/></td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                        <td>{{ print_screen.url }}</td>
+                        <td>{{ print_screen.status ? 'Yes' : 'No' }}</td>
+                        <td>{{ print_screen.CreateDate ? print_screen.CreateDate|date('Y-m-d H:i:s') : '' }}</td>
+                        <td>
+                            <a href="{{ path('print_screen_show', {'id': print_screen.id}) }}">show</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="13">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

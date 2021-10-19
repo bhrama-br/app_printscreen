@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+{% block title %}PrintScreen{% endblock %}
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <h1>PrintScreen</h1>
+                <a href="{{ path('print_screen_index') }}">back to list</a>
+                <hr />
+            </div>
+
+            <div class="col-md-4">
+                <img src="{{ print_screen.url_image }}" class="img-fluid"/>
+            </div>
+                
+            <div class="col-md-8">
+            
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ print_screen.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Url</th>
+                            <td>{{ print_screen.url }}</td>
+                        </tr>
+                        <tr>
+                            <th>File_type</th>
+                            <td>{{ print_screen.fileType }}</td>
+                        </tr>
+                        <tr>
+                            <th>Fail_on_error</th>
+                            <td>{{ print_screen.failOnError ? 'Yes' : 'No' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Scroll_to_element</th>
+                            <td>{{ print_screen.scrollToElement }}</td>
+                        </tr>
+                        <tr>
+                            <th>Selector</th>
+                            <td>{{ print_screen.selector }}</td>
+                        </tr>
+                        <tr>
+                            <th>Full_page</th>
+                            <td>{{ print_screen.fullPage ? 'Yes' : 'No' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Lazy_load</th>
+                            <td>{{ print_screen.lazyLoad ? 'Yes' : 'No' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Width</th>
+                            <td>{{ print_screen.width }}</td>
+                        </tr>
+                        <tr>
+                            <th>Height</th>
+                            <td>{{ print_screen.height }}</td>
+                        </tr>
+                        <tr>
+                            <th>Status</th>
+                            <td>{{ print_screen.status ? 'Yes' : 'No' }}</td>
+                        </tr>
+                        <tr>
+                            <th>CreateDate</th>
+                            <td>{{ print_screen.CreateDate ? print_screen.CreateDate|date('Y-m-d H:i:s') : '' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
